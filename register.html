@@ -4,47 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>register</title>
+    <title>Register</title>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        .g_id_signin {
+            margin-top: 20px;
+        }
+        .inputBox input.error {
+            border: 1px solid red;
+            background-color: #ffcccc;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-
-        <form action="">
-        <div class="row">
-            <div class="col">
-                <h3 class="title">Register</h3>
-                <div class="inputBox">
-                    <span>full name:</span>
-                    <input type="text" placeholder="name">
-                </div> 
-                <div class="inputBox">
-                    <span>email:</span>
-                    <input type="text" placeholder="eg@gamil.com">
-                </div>
-                 <div class="inputBox">
-                    <span>address:</span>
-                    <input type="text" placeholder="house - street">
-                </div> 
-                <div class="inputBox">
-                    <span>city:</span>
-                    <input type="text" placeholder="sydney">
-                </div> 
-                <div class="flex">
-                <div class="inputBox">
-                    <span>state:</span>
-                    <input type="text" placeholder="Australia">
-                </div> 
-                <div class="inputBox">
-                    <span>zip code:</span>
-                    <input type="text" placeholder="7445">
-                </div>
-                </div>
-            </div>
-            <input type="submit"  value="submit" class="submit-btn">
-            </div>
+        <form id="registerForm" action="">
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Register</h3>
+                    <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID"
+             data-context="signup"
+             data-ux_mode="popup"
+             data-callback="onSignIn"
+             data-auto_prompt="false">
         </div>
-        
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="signup_with"
+             data-size="large"
+             data-logo_alignment="left">
+        </div>
+                    <div class="inputBox">
+                        <span>Full Name:</span>
+                        <input type="text" placeholder="Name" id="name">
+                    </div> 
+                    <div class="inputBox">
+                        <span>Email:</span>
+                        <input type="email" placeholder="eg@gmail.com" id="email">
+                    </div>
+                    <div class="inputBox">
+                        <span>Address:</span>
+                        <input type="text" placeholder="House - Street" id="address">
+                    </div> 
+                    <div class="inputBox">
+                        <span>City:</span>
+                        <input type="text" placeholder="Sydney" id="city">
+                    </div> 
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>State:</span>
+                            <input type="text" placeholder="Australia" id="state">
+                        </div> 
+                        <div class="inputBox">
+                            <span>Zip Code:</span>
+                            <input type="text" placeholder="7445" id="zip">
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="Submit" class="submit-btn">
+            </div>
         </form>
+        
     </div>
+    
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            const fields = ['name', 'email', 'address', 'city', 'state', 'zip'];
+            let valid = true;
+
+            fields.forEach(function(field) {
+                const input = document.getElementById(field);
+                if (!input.value) {
+                    input.classList.add('error');
+                    valid = false;
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            if (valid) {
+                document.getElementById('registerForm').submit();
+            } else {
+                alert("All fields must be filled out");
+            }
+        }
+
+        document.getElementById('registerForm').addEventListener('submit', validateForm);
+
+        function onSignIn(response) {
+            console.log(response); // Handle the response from Google Sign-In
+        }
+    </script>
 </body>
 </html>
