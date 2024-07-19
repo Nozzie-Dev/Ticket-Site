@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
     <title>Register</title>
+
+     <!-- Call google account sign in -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
         .g_id_signin {
@@ -22,21 +24,22 @@
             <div class="row">
                 <div class="col">
                     <h3 class="title">Register</h3>
+                     <!-- sign in with google button -->
                     <div id="g_id_onload"
-             data-client_id="YOUR_GOOGLE_CLIENT_ID"
-             data-context="signup"
-             data-ux_mode="popup"
-             data-callback="onSignIn"
-             data-auto_prompt="false">
-        </div>
-        <div class="g_id_signin"
-             data-type="standard"
-             data-shape="rectangular"
-             data-theme="outline"
-             data-text="signup_with"
-             data-size="large"
-             data-logo_alignment="left">
-        </div>
+                        data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                        data-context="signup"
+                        data-ux_mode="popup"
+                        data-callback="onSignIn"
+                        data-auto_prompt="false">
+                    </div>
+                    <div class="g_id_signin"
+                        data-type="standard"
+                        data-shape="rectangular"
+                        data-theme="outline"
+                        data-text="signup_with"
+                        data-size="large"
+                        data-logo_alignment="left">
+                    </div>
                     <div class="inputBox">
                         <span>Full Name:</span>
                         <input type="text" placeholder="Name" id="name">
@@ -51,16 +54,16 @@
                     </div> 
                     <div class="inputBox">
                         <span>City:</span>
-                        <input type="text" placeholder="Sydney" id="city">
+                        <input type="text" placeholder="Mafikeng" id="city">
                     </div> 
                     <div class="flex">
                         <div class="inputBox">
-                            <span>State:</span>
-                            <input type="text" placeholder="Australia" id="state">
+                            <span>Province:</span>
+                            <input type="text" placeholder="North West" id="province">
                         </div> 
                         <div class="inputBox">
-                            <span>Zip Code:</span>
-                            <input type="text" placeholder="7445" id="zip">
+                            <span>Postal Code:</span>
+                            <input type="text" placeholder="7445" id="postalCode">
                         </div>
                     </div>
                 </div>
@@ -69,35 +72,6 @@
         </form>
         
     </div>
-    
-    <script>
-        function validateForm(event) {
-            event.preventDefault();
-            const fields = ['name', 'email', 'address', 'city', 'state', 'zip'];
-            let valid = true;
-
-            fields.forEach(function(field) {
-                const input = document.getElementById(field);
-                if (!input.value) {
-                    input.classList.add('error');
-                    valid = false;
-                } else {
-                    input.classList.remove('error');
-                }
-            });
-
-            if (valid) {
-                document.getElementById('registerForm').submit();
-            } else {
-                alert("All fields must be filled out");
-            }
-        }
-
-        document.getElementById('registerForm').addEventListener('submit', validateForm);
-
-        function onSignIn(response) {
-            console.log(response); // Handle the response from Google Sign-In
-        }
-    </script>
+    <script src="javascript.js"></script>  
 </body>
 </html>

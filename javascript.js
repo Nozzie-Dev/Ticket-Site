@@ -1,3 +1,33 @@
+//Scripts for register
+function validateForm(event) {
+    event.preventDefault();
+    const fields = ['name', 'email', 'address', 'city', 'province', 'postalCode'];
+    let valid = true;
+
+    fields.forEach(function(field) {
+        const input = document.getElementById(field);
+        if (!input.value) {
+            input.classList.add('error');
+            valid = false;
+        } else {
+            input.classList.remove('error');
+        }
+    });
+
+    if (valid) {
+        document.getElementById('registerForm').submit();
+    } else {
+        alert("All fields must be filled out");
+    }
+}
+
+document.getElementById('registerForm').addEventListener('submit', validateForm);
+
+function onSignIn(response) {
+    console.log(response); // Handle the response from Google Sign-In
+}
+
+
 // Scripts for payments
 document.getElementById('paymentForm').addEventListener('submit', function(event) {
     event.preventDefault();
