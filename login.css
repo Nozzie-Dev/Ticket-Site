@@ -90,3 +90,17 @@
 container form .submit-btn:hover{
     background: orange;
 }
+
+/*Related to form validtion rules in payments*/
+input.error {
+    background-color: lightcoral;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}
+
+

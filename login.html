@@ -4,80 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>payments</title>
+    <title>Payments</title>
 </head>
 <body>
     <div class="container">
-
-        <form action="">
-        <div class="row">
-            <div class="col">
-                <h3 class="title">Billing Address</h3>
-                <div class="inputBox">
-                    <span>full name:</span>
-                    <input type="text" placeholder="name">
-                </div> 
-                <div class="inputBox">
-                    <span>email:</span>
-                    <input type="text" placeholder="eg@gamil.com">
+        <form id="paymentForm" action="">
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Billing Address</h3>
+                    <div class="inputBox">
+                        <span>Full Name:</span>
+                        <input type="text" id="fullName" name="fullName" placeholder="Name">
+                        <span class="error-message" id="fullNameError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Email:</span>
+                        <input type="text" id="email" name="email" placeholder="eg@gmail.com">
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Address:</span>
+                        <input type="text" id="address" name="address" placeholder="House - Street">
+                        <span class="error-message" id="addressError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>City:</span>
+                        <input type="text" id="city" name="city" placeholder="Sydney">
+                        <span class="error-message" id="cityError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Province:</span>
+                        <input type="text" id="province" name="province" placeholder="Province">
+                        <span class="error-message" id="provinceError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Postal Code:</span>
+                        <input type="text" id="postalCode" name="postalCode" placeholder="7445">
+                        <span class="error-message" id="postalCodeError"></span>
+                    </div>
                 </div>
-                 <div class="inputBox">
-                    <span>address:</span>
-                    <input type="text" placeholder="house - street">
-                </div> 
-                <div class="inputBox">
-                    <span>city:</span>
-                    <input type="text" placeholder="sydney">
-                </div> 
-                <div class="inputBox">
-                    <span>full name:</span>
-                    <input type="text" placeholder="name">
-                </div> 
-                <div class="flex">
-                <div class="inputBox">
-                    <span>state:</span>
-                    <input type="text" placeholder="Australia">
-                </div> 
-                <div class="inputBox">
-                    <span>zip code:</span>
-                    <input type="text" placeholder="7445">
-                </div>
+                <div class="col">
+                    <h3 class="title">Payment</h3>
+                    <div class="inputBox">
+                        <span>Payment Methods:</span>
+                        <img src="images/images (1).png" alt="Payment Methods">
+                    </div>
+                    <div class="inputBox">
+                        <span>Card Holder:</span>
+                        <input type="text" id="cardHolder" name="cardHolder" placeholder="Ms. Jane Doe">
+                        <span class="error-message" id="cardHolderError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Card Number:</span>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1111-2222-3333-4444">
+                        <span class="error-message" id="cardNumberError"></span>
+                    </div>
+                    <div class="inputBox">
+                        <span>Exp Month:</span>
+                        <input type="text" id="expMonth" name="expMonth" placeholder="November">
+                        <span class="error-message" id="expMonthError"></span>
+                    </div>
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Exp Year:</span>
+                            <input type="text" id="expYear" name="expYear" placeholder="2028">
+                            <span class="error-message" id="expYearError"></span>
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV:</span>
+                            <input type="text" id="cvv" name="cvv" placeholder="744">
+                            <span class="error-message" id="cvvError"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <h3 class="title">payment</h3>
-                
-                <div class="inputBox">
-                    <span>payment methods:</span>
-                   <img src="images/images (1).png" alt="">
-                </div> 
-                <div class="inputBox">
-                    <span>card holder:</span>
-                    <input type="text" placeholder="ms.jane doe">
-                </div>
-                 <div class="inputBox">
-                    <span>card number:</span>
-                    <input type="text" placeholder="1111-2222-3333-4444">
-                </div> 
-                <div class="inputBox">
-                    <span>exp month:</span>
-                    <input type="text" placeholder="November">
-                </div> 
-               
-                <div class="flex">
-                <div class="inputBox">
-                    <span>exp year:</span>
-                    <input type="text" placeholder="2028">
-                </div> 
-                <div class="inputBox">
-                    <span>ccv:</span>
-                    <input type="text" placeholder="744">
-                </div>
-                </div>
-            </div>
-        </div>
-        <input type="submit"  value="proceed to checkout" class="submit-btn">
+            <input type="submit" value="Proceed to Checkout" class="submit-btn">
         </form>
     </div>
+    <script src="javascript.js"></script>
 </body>
 </html>
