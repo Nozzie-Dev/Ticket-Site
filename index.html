@@ -9,17 +9,20 @@ Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20140101
 
---><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title></title><meta name="keywords" content=""><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="description" content=""><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900%7CQuicksand:400,700%7CQuestrial" rel="stylesheet"><link href="default.css" rel="stylesheet" type="text/css" media="all"><link href="fonts.css" rel="stylesheet" type="text/css" media="all"><!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]--></head><body>
-<div id="header-wrapper">
+--><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title></title><meta name="keywords" content=""><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="description" content=""><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900%7CQuicksand:400,700%7CQuestrial" rel="stylesheet"><link href="default.css" rel="stylesheet" type="text/css" media="all"><link href="fonts.css" rel="stylesheet" type="text/css" media="all"><!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head><body>
+
+	<div id="header-wrapper">
 	<div id="header" class="container">
 		<div id="logo">
 			<h1><a href="#">Capstone Tickets</a></h1>
 		</div>
 		<div id="menu">
 			<ul><li class="current_page_item"><a href="#wrapper2" accesskey="1" title="">Homepage</a></li>
-				<li><a href="#" accesskey="2" title="">login</a></li>
 				<li><a href="#wrapper" accesskey="3" title="">About Us</a></li>
 				<li><a href="#three-column" accesskey="4" title="">Events</a></li>
+				<li><a href="#" accesskey="2" title="">login</a></li>
 				<li><a href="register.html" accesskey="5" title="">Register</a></li>
 			</ul></div>
 	</div>
@@ -92,4 +95,49 @@ Released   : 20140101
 	and is open sourced on 
 	<a href="https://github.com/Nozzie-Dev/Ticket-Site" target="_blank">GitHub</a>.
 	</div>
+
+	  <!-- Login Popup -->
+<div id="login-popup" class="modal">
+	<div class="modal-content">
+	  <span class="close">&times;</span>
+	  <h2>Login</h2>
+	  <form id="login-form">
+		<div class="form-group">
+		  <label for="username">Username:</label>
+		  <input type="text" id="username" name="username" required>
+		</div>
+		<div class="form-group">
+		  <label for="password">Password:</label>
+		  <input type="password" id="password" name="password" required>
+		</div>
+		<button type="submit" class="btn">Login</button>
+		<button type="button" class="btn google-login">Login with Google</button>
+		<div class="links">
+		  <a href="#">Forgot Username?</a> | 
+		  <a href="#">Forgot Password?</a>
+		</div>
+	  </form>
+	</div>
+  </div>
+  <script>
+	// Get the modal
+	var modal = document.getElementById("login-popup");
+	var btn = document.querySelector("#menu li:nth-child(4) a");
+	var span = document.getElementsByClassName("close")[0];
+  
+	// When the user clicks on the button, open the modal
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+  
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+  
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+		modal.style.display = "none";
+	  }
+	}
+  </script>
 </body></html>
