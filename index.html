@@ -139,5 +139,35 @@ Released   : 20140101
 		modal.style.display = "none";
 	  }
 	}
+	 class User{
+
+		public $username;
+		private $password;
+
+		public function construct($username, $password) {
+			$this->username = $username;
+			$this->password = $password
+		}
+
+		public function addUsername(){
+			return "$this->password added username"
+		}
+
+	//getter
+	public function getUsername(){
+		return $this->username;
+	}
+	//setter
+
+	public function setusername($username){
+		if(strpos($username. '') > -1){
+			$this ->username = $username
+		}
+	}
+
+	}
+	username->setusername('');
+
+	echo $userone->getUsername();
   </script>
 </body></html>
