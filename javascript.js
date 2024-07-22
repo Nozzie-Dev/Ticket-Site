@@ -27,7 +27,7 @@ function onSignIn(response) {
     console.log(response); // Handle the response from Google Sign-In
 }
 
-//script for payments
+//Script for payments
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('paymentForm').addEventListener('submit-payment', function(event) {
         event.preventDefault();
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isValid) {
             alert('Purchase complete!');
             console.log('Form submission is valid.');
-            // Add further actions here (e.g., redirect, save data)
+            // maybe add ticket snapshot?
         } else {
             alert('Please fill out all fields correctly.');
             console.log('Form submission is invalid.');
