@@ -67,10 +67,8 @@ document.getElementById('paymentForm').addEventListener('submit', function(event
     }
 
     if (isValid) {
-        // Add code to proceed to buy tickets
-        // pop-up to get quantity, if 1> get atendee names
-        // alert tickets have been emailed to user email
-        
+        alert('Purchase complete!');
+        // Add further actions here (e.g., redirect, save data)
     } else {
         alert('Please fill out all fields correctly.');
     }
@@ -112,6 +110,7 @@ class Ticket {
     }
 }
 
+// Define the User class
 class User {
     constructor(userId, username, password, email, fullName) {
         this.userId = userId;
@@ -121,9 +120,28 @@ class User {
         this.fullName = fullName;
     }
 
+    getUsername() {
+        return this.username;
+    }
+
     validatePassword(passwordToCheck) {
         return this.password === passwordToCheck;
     }
 }
 
-//Event Schedule
+// Create users
+const users = [
+    new User(1, 'Nozzie_Dev', 'nozzie09', 'nozzie@tix.com', 'Noziphezinhle Nzimande'),
+    new User(2, 'kagi', 'kagi003', 'kagi@tix.com', 'Kagiso Masemola'),
+    new User(3, 'lerato', 'lera07', 'lerato@tix.com', 'Lerato Nxumalo'),
+    new User(4, 'admin', 'admin', 'admin@tix.com', 'Admin User')
+];
+
+// Function to find user by username and password
+function authenticateUser(username, password) {
+    return users.find(user => user.getUsername() === username && user.validatePassword(password));
+}
+
+
+
+

@@ -98,76 +98,74 @@ Released   : 20140101
 
 	  <!-- Login Popup -->
 <div id="login-popup" class="modal">
-	<div class="modal-content">
-	  <span class="close">&times;</span>
-	  <h2>Login</h2>
-	  <form id="login-form">
-		<div class="form-group">
-		  <label for="username">Username:</label>
-		  <input type="text" id="username" name="username" required>
-		</div>
-		<div class="form-group">
-		  <label for="password">Password:</label>
-		  <input type="password" id="password" name="password" required>
-		</div>
-		<button type="submit" class="btn">Login</button>
-		<button type="button" class="btn google-login">Login with Google</button>
-		<div class="links">
-		  <a href="#">Forgot Username?</a> | 
-		  <a href="#">Forgot Password?</a>
-		</div>
-	  </form>
-	</div>
-  </div>
-  <script>
-	// Get the modal
-	var modal = document.getElementById("login-popup");
-	var btn = document.querySelector("#menu li:nth-child(4) a");
-	var span = document.getElementsByClassName("close")[0];
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn google-login">Login with Google</button>
+            <div class="links">
+                <a href="#">Forgot Username?</a> | 
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="javascript.js"></script>  
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Document loaded and script running');
+
+    var modal = document.getElementById("login-popup");
+    var btn = document.querySelector("#menu li:nth-child(4) a");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        console.log('Login button clicked');
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        console.log('Close button clicked');
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            console.log('Click outside modal');
+            modal.style.display = "none";
+        }
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        console.log(`Attempting login with username: ${username} and password: ${password}`);
+
+        const authenticatedUser = authenticateUser(username, password);
+
+        if (authenticatedUser) {
+            console.log('Login successful');
+            modal.style.display = "none";
+            window.location.href = 'loggedin.html?username=' + encodeURIComponent(username);
+        } else {
+            console.log('Login failed');
+            alert('Incorrect username or password.');
+        }
+    });
+});
+  </script> 
   
-	// When the user clicks on the button, open the modal
-	btn.onclick = function() {
-	  modal.style.display = "block";
-	}
-  
-	span.onclick = function() {
-	  modal.style.display = "none";
-	}
-  
-	window.onclick = function(event) {
-	  if (event.target == modal) {
-		modal.style.display = "none";
-	  }
-	}
-	 class User{
-
-		public $username;
-		private $password;
-
-		public function construct($username, $password) {
-			$this->username = $username;
-			$this->password = $password
-		}
-
-		public function addUsername(){
-			return "$this->password added username"
-		}
-
-	//getter
-	public function getUsername(){
-		return $this->username;
-	}
-	//setter
-
-	public function setusername($username){
-		if(strpos($username. '') > -1){
-			$this ->username = $username
-		}
-	}
-
-	}
-	username->setusername('');
-
-	echo $userone->getUsername();
-  </script>
 </body></html>
