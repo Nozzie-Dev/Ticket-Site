@@ -27,64 +27,6 @@ function onSignIn(response) {
     console.log(response); // Handle the response from Google Sign-In
 }
 
-//Script for payments
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('paymentForm').addEventListener('submit-payment', function(event) {
-        event.preventDefault();
-
-        let isValid = true;
-        const fields = ['fullName', 'email', 'address', 'city', 'province', 'postalCode', 'cardHolder', 'cardNumber', 'expMonth', 'expYear', 'cvv'];
-
-        fields.forEach(field => {
-            const input = document.getElementById(field);
-            const errorElement = document.getElementById(field + 'Error');
-            input.classList.remove('error');
-            errorElement.textContent = '';
-
-            console.log(`Checking field: ${field}, Value: ${input.value.trim()}`);
-
-            if (!input.value.trim()) {
-                input.classList.add('error');
-                errorElement.textContent = 'This field is required.';
-                isValid = false;
-                console.log(`Field ${field} is empty.`);
-            }
-        });
-
-        const cardNumberInput = document.getElementById('cardNumber');
-        const cardNumberError = document.getElementById('cardNumberError');
-        const cardNumber = cardNumberInput.value.trim().replace(/-/g, '');
-        console.log(`Card Number: ${cardNumber}`);
-        
-        if (cardNumber.length !== 16 || isNaN(cardNumber)) {
-            cardNumberInput.classList.add('error');
-            cardNumberError.textContent = 'Card number must be 16 digits.';
-            isValid = false;
-            console.log(`Invalid Card Number: ${cardNumber}`);
-        }
-
-        const cvvInput = document.getElementById('cvv');
-        const cvvError = document.getElementById('cvvError');
-        const cvv = cvvInput.value.trim();
-        console.log(`CVV: ${cvv}`);
-        
-        if (cvv.length !== 3 || isNaN(cvv)) {
-            cvvInput.classList.add('error');
-            cvvError.textContent = 'CVV must be 3 digits.';
-            isValid = false;
-            console.log(`Invalid CVV: ${cvv}`);
-        }
-
-        if (isValid) {
-            alert('Purchase complete!');
-            console.log('Form submission is valid.');
-            // maybe add ticket snapshot?
-        } else {
-            alert('Please fill out all fields correctly.');
-            console.log('Form submission is invalid.');
-        }
-    });
-});
 
 
 //Objects
